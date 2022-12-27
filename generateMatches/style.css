@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,11 +7,42 @@
 }
 
 body {
-    background: rgb(43, 20, 129);
-    padding: 160px 20%;
+    background: #334155;
+    padding: 64px 160px 180px;
+    font-family: 'Inter';
 }
 
 h1 {
+    font-weight: 700;
+    font-size: 38px;
+    letter-spacing: 0.05em;
+}
+
+
+input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+}
+
+span {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+}
+
+button {
+    border: none
+}
+
+label {
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+}
+
+.page-title {
     text-align: center;
 }
 
@@ -22,27 +55,97 @@ h1 {
 }
 
 .number-teams-container {
+    margin-top: 44px;
+    padding: 28px 62px 36px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    border-radius: 16px;
+    background: #64748B;
+    width: 100%;
+    max-width: 550px;
 }
 
-
 .team-names {
-    margin: 20px 0;
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
+    margin-top: 180px;
+    padding: 28px 40px 36px;
     align-items: center;
     justify-content: center;
+    border-radius: 16px;
+    background: #64748B;
     width: 100%;
+    max-width: 550px;
 
     display: none;
+    flex-wrap: wrap;
+}
+
+.teams-select {
+    margin-top: 44px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.teams-select label {
+    display: none;
+
+}
+
+.teams-select select {
+    background: #E2E8F0;
+    text-transform: uppercase;
+}
+
+.team-names>select::before {
+    content: "1";
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#number-teams {
+    background: #E2E8F0;
+    width: 100px;
+    border-radius: 8px;
+    margin-top: 36px;
+    aspect-ratio: 9/5;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+#number-teams:focus {
+    border: 1.5px solid #334155;
+}
+
+#number-teams-btn,
+#generate-btn {
+    max-width: 350px;
+    width: 100%;
+    margin-top: 64px;
+    background: #E2E8F0;
+    padding: 18px;
+    border-radius: 8px;
+    color: #334155;
+    font-size: 24px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+#number-teams-btn:hover,
+#generate-btn:hover {
+    background: #cbd5e1;
 }
 
 #generate-btn {
     display: none;
+    margin-top: 64px;
 }
 
 
@@ -50,6 +153,9 @@ h1 {
     display: none;
 }
 
-h1, h2, label, td {
+h1,
+h2,
+label,
+td {
     color: #fff;
 }

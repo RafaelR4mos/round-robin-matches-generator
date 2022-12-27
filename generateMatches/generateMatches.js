@@ -33,12 +33,12 @@ numberTeamsBtn.addEventListener("click", () => {
   teamNamesContainer.style.display = "flex";
   console.log(numberOfTeams);
 
-  for(let i = 1; i <= numberOfTeams; i++) {
+  for (let i = 1; i <= numberOfTeams; i++) {
     createSelect(i);
   }
 
   if (numberOfTeams > 2 && numberOfTeams < 7) {
-    generateBtn.style.display = "flex";
+    generateBtn.style.display = "block";
   }
 });
 
@@ -50,7 +50,7 @@ const DUMMY = -1;
 // returns an array of round representations (array of player pairs).
 // http://en.wikipedia.org/wiki/Round-robin_tournament#Scheduling_algorithm
 function shuffle(array) {
-  let currentIndex = array.length,  randomIndex;
+  let currentIndex = array.length, randomIndex;
 
   // While there remain elements to shuffle.
   while (currentIndex != 0) {
@@ -139,7 +139,7 @@ function matches(n, ps) {
   (rs[3] && rs[3][2] && rs[3][2][0]) ? document.querySelector("#twelve-team-one").innerText = rs[3][2][0] : null;
   (rs[3] && rs[3][2] && rs[3][2][1]) ? document.querySelector("#twelve-team-two").innerText = rs[3][2][1] : null;
 
-  ( rs[4] && rs[4][0] && rs[4][0][0]) ? document.querySelector("#thirteen-team-one").innerText = rs[4][0][0] : null;
+  (rs[4] && rs[4][0] && rs[4][0][0]) ? document.querySelector("#thirteen-team-one").innerText = rs[4][0][0] : null;
   (rs[4] && rs[4][0] && rs[4][0][1]) ? document.querySelector("#thirteen-team-two").innerText = rs[4][0][1] : null;
 
   (rs[4] && rs[4][1] && rs[4][1][0]) ? document.querySelector("#fourteen-team-one").innerText = rs[4][1][0] : null;
@@ -153,22 +153,22 @@ function matches(n, ps) {
 function createTable() {
   const selectedData = [];
   document.querySelectorAll('.team-names select').forEach((select) => {
-   selectedData.push(select.value);
+    selectedData.push(select.value);
   });
-  
+
   matches(parseInt(numberOfTeams), selectedData);
 
   let count = 1;
   document.querySelectorAll('.matches').forEach((match) => {
     const filteredArr = match.querySelector('td');
-     if (filteredArr.innerText == '') {
-        match.style.display = 'none';
-     } else {
+    if (filteredArr.innerText == '') {
+      match.style.display = 'none';
+    } else {
       const trId = document.createElement("td");
       trId.innerText = count;
       match.insertBefore(trId, match.firstChild);
       count++
-     }
+    }
   })
   console.log(selectedData);
 
@@ -177,21 +177,27 @@ function createTable() {
 
 window.onload = () => {
   fetch('./database.json')
-  .then((response) => response.json())
-  .then((json) => {
-    teamsData = json.teams;
-  });
+    .then((response) => response.json())
+    .then((json) => {
+      teamsData = json.teams;
+    });
 }
 function createSelect(index) {
   const selectTeamsName = document.createElement("select");
   var label = document.createElement("label");
   label.innerText = "time" + index;
-  document.querySelector('.team-names').appendChild(label);
+  document.querySelector('.teams-select').appendChild(label);
+  var el = document.createElement("option");
+  el.textContent = "Times";
+  el.value = 0;
+  selectTeamsName.appendChild(el);
+  document.querySelector('.teams-select').appendChild(selectTeamsName);
+
   teamsData.forEach((team) => {
-    var el = document.createElement("option");
+    el = document.createElement("option");
     el.textContent = team.shortName;
     el.value = team.shortName;
     selectTeamsName.appendChild(el);
-    document.querySelector('.team-names').appendChild(selectTeamsName);
+    document.querySelector('.teams-select').appendChild(selectTeamsName);
   })
 }

@@ -1,147 +1,140 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generate Matches</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main>
-      <div class="generate-container">
-        <h1>Generate your matches</h1>
 
-        <div class="number-teams-container">
-          <label for="number-teams">Digite o número de times</label>
-          <input id="number-teams" type="number" />
-          <button id="number-teams-btn">Confirmar</button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generate Matches</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-        <div class="team-names">
-
-            <!-- <label id="team-first-label">Time 1</label>
-            <option id="team-first" type="text">
-
-            <label id="team-second-label">Time 2</label>
-            <input id="team-second" type="text">
-
-            <label id="team-three-label">Time 3</label>
-            <input id="team-three" type="text">
-
-            <label id="team-four-label">Time 4</label>
-            <input id="team-four"  type="text">
-
-            <label id="team-five-label">Time 5</label>
-            <input id="team-five"  type="text">
-
-            <label id="team-six-label">Time 6</label>
-            <input id="team-six" type="text"> -->
-        </div>
-
-        <button id="generate-btn">Generate</button>
-
-        <table id="matches-table">
-          <tr class="table-header">
-            <th>ID</th>
-            <th>Time 1</th>
-            <th></th>
-            <th>Time 2</th>
-          </tr>
-
-          <tr class="matches">
-            <td id="one-team-one"></td>
-            <td>x</td>
-            <td id="one-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="two-team-one"></td>
-            <td>x</td>
-            <td id="two-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="three-team-one"></td>
-            <td>x</td>
-            <td id="three-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="four-team-one"></td>
-            <td>x</td>
-            <td id="four-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="five-team-one"></td>
-            <td>x</td>
-            <td id="five-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="six-team-one"></td>
-            <td>x</td>
-            <td id="six-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="seven-team-one"></td>
-            <td>x</td>
-            <td id="seven-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="eight-team-one"></td>
-            <td>x</td>
-            <td id="eight-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="nine-team-one"></td>
-            <td>x</td>
-            <td id="nine-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="ten-team-one"></td>
-            <td>x</td>
-            <td id="ten-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="eleven-team-one"></td>
-            <td>x</td>
-            <td id="eleven-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="twelve-team-one"></td>
-            <td>x</td>
-            <td id="twelve-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="thirteen-team-one"></td>
-            <td>x</td>
-            <td id="thirteen-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="fourteen-team-one"></td>
-            <td>x</td>
-            <td id="fourteen-team-two"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="fifteen-team-one"></td>
-            <td>x</td>
-            <td id="fifteen-team-two"></td>
-          </tr>
-
-        </table>
+<body>
+  <main>
+    <div class="generate-container">
+      <div class="page-title">
+        <span>Assim fica fácil criar campeonatos</span>
+        <h1>Gere agora as suas partidas</h1>
       </div>
-    </main>
-  </body>
-  <script src="generateMatches.js"></script>
+
+
+      <div class="number-teams-container">
+        <label for="number-teams">Digite o número de times participantes</label>
+        <input id="number-teams" type="number" required />
+        <button id="number-teams-btn">Confirmar</button>
+      </div>
+
+      <div class="team-names">
+        <h2>Selecione os times</h2>
+
+        <div class="teams-select">
+        </div>
+        <button id="generate-btn">Gerar tabela</button>
+      </div>
+
+
+      <table id="matches-table">
+        <tr class="table-header">
+          <th>ID</th>
+          <th>Time 1</th>
+          <th></th>
+          <th>Time 2</th>
+        </tr>
+
+        <tr class="matches">
+          <td id="one-team-one"></td>
+          <td>x</td>
+          <td id="one-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="two-team-one"></td>
+          <td>x</td>
+          <td id="two-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="three-team-one"></td>
+          <td>x</td>
+          <td id="three-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="four-team-one"></td>
+          <td>x</td>
+          <td id="four-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="five-team-one"></td>
+          <td>x</td>
+          <td id="five-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="six-team-one"></td>
+          <td>x</td>
+          <td id="six-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="seven-team-one"></td>
+          <td>x</td>
+          <td id="seven-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="eight-team-one"></td>
+          <td>x</td>
+          <td id="eight-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="nine-team-one"></td>
+          <td>x</td>
+          <td id="nine-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="ten-team-one"></td>
+          <td>x</td>
+          <td id="ten-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="eleven-team-one"></td>
+          <td>x</td>
+          <td id="eleven-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="twelve-team-one"></td>
+          <td>x</td>
+          <td id="twelve-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="thirteen-team-one"></td>
+          <td>x</td>
+          <td id="thirteen-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="fourteen-team-one"></td>
+          <td>x</td>
+          <td id="fourteen-team-two"></td>
+        </tr>
+
+        <tr class="matches">
+          <td id="fifteen-team-one"></td>
+          <td>x</td>
+          <td id="fifteen-team-two"></td>
+        </tr>
+
+      </table>
+    </div>
+  </main>
+</body>
+<script src="generateMatches.js"></script>
+
 </html>
