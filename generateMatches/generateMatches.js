@@ -4,6 +4,7 @@ const numberTeamsBtn = document.querySelector("#number-teams-btn");
 const numberTeamsInput = document.querySelector("#number-teams");
 const teamNamesContainer = document.querySelector(".team-names");
 const matchesTable = document.querySelector("#matches-table");
+const matchesTableContainer = document.querySelector(".matches-table-container");
 
 const sixthTeamNameInput = document.querySelector("#team-six");
 const sixthTeamNameLabel = document.querySelector("#team-six-label");
@@ -103,7 +104,6 @@ function matches(n, ps) {
     }
     ps.splice(1, 0, ps.pop()); // permutate for next round
   }
-  console.log(rs);
 
   (rs[0] && rs[0][0] && rs[0][0][0]) ? document.querySelector("#one-team-one").innerText = rs[0][0][0] : null;
   (rs[0] && rs[0][0] && rs[0][0][1]) ? document.querySelector("#one-team-two").innerText = rs[0][0][1] : null;
@@ -157,8 +157,9 @@ function matches(n, ps) {
 
 function createTable() {
   const selectedData = [];
-  document.querySelectorAll('.team-names select').forEach((select) => {
+  document.querySelectorAll('.teams-select>select').forEach((select) => {
     selectedData.push(select.value);
+    console.log(selectedData);
   });
 
   matches(parseInt(numberOfTeams), selectedData);
@@ -176,8 +177,9 @@ function createTable() {
     }
   })
   console.log(selectedData);
-
   matchesTable.style.display = "flex";
+  matchesTableContainer.style.display = "flex";
+
 }
 
 window.onload = () => {
@@ -204,6 +206,89 @@ function createSelect(index) {
     el.textContent = team.shortName;
     el.value = team.shortName;
     selectTeamsName.appendChild(el);
-    document.querySelector('.team-names').appendChild(selectTeamsName);
+    document.querySelector('.teams-select').appendChild(selectTeamsName);
   });
+}
+
+function configScoreListeners() {
+  document.querySelectorAll('.score').forEach((score) => {
+    score.addEventListener('input', (event) => {
+      validateScore(event.currentTarget);
+    });
+  });
+}
+
+function validateScore(element) {
+  const scoreRow = element.parentElement.parentElement;
+  let bothFilled = true;
+  const data = {};
+
+  scoreRow.querySelectorAll('.score').forEach((score) => {
+    if (score.value === '') {
+      bothFilled = false;
+    } else {
+      if (score.classList.contains('first')) {
+        data.first = {
+          'teamName': scoreRow.querySelector('td.first').innerText,
+          'teamScore': score.value
+        };
+      } else if (score.classList.contains('second')) {
+        data.second = {
+          'teamName': scoreRow.querySelector('td.second').innerText,
+          'teamScore': score.value
+        };
+      }
+    }
+  });
+
+  if (bothFilled) {
+    data.matchId = scoreRow.querySelector('td').innerText;
+    updateMainScore(data);
+  }
+}
+
+function updateMainScore(data) {
+  const matchIndex = matchesData.findIndex(match => match.matchId === data.matchId);
+  if (matchIndex === -1) {
+    matchesData.push(data);
+  } else {
+    matchesData[matchIndex] = data;
+  }
+
+  proccessData();
+}
+
+function proccessData() {
+  scoreData = [];
+  teamsParticipating.forEach((team) => {
+    const teamMatches = matchesData.filter(match => (match.first.teamName === team || match.second.teamName === team));
+    let points = 0;
+    const matches = teamMatches.length;
+    let wins = 0;
+    let draws = 0;
+    let defeats = 0;
+    let goalsDiff = 0;
+    teamMatches.forEach((match) => {
+      // WIN, DRAW, LOSE
+      if (match.first.teamScore > match.second.teamScore && match.first.teamName === team || match.first.teamScore < match.second.teamScore && match.second.teamName === team) {
+        wins++;
+        points += 3;
+        goalsDiff += Math.abs(match.first.teamScore - match.second.teamScore);
+      } else if (match.first.teamScore === match.second.teamScore) {
+        draws++;
+        points++;
+      } else {
+        defeats++;
+        goalsDiff -= Math.abs(match.first.teamScore - match.second.teamScore);
+      }
+    });
+
+    scoreData.push({ 'team': team, 'points ': points, 'matches': matches, 'wins': wins, 'draws': draws, 'defeats': defeats, 'goalsDiff': goalsDiff });
+    // console.log('team stats ',team, ' points ', points, ' matches ', matches, ' wins ', wins, ' draws ', draws, ' defeats ', defeats, ' goals diff ', goalsDiff);
+  });
+
+  console.log('DATA', scoreData);
+}
+function drawScoreTable() {
+
 }
