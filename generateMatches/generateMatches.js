@@ -27,6 +27,10 @@ var numberOfTeams;
 var numberOfTeamsActuallyTyped;
 
 let teamsData;
+const matchesData = [];
+let scoreData = [];
+let teamsParticipating;
+
 
 numberTeamsBtn.addEventListener("click", () => {
   numberOfTeams = numberTeamsInput.value;
@@ -68,6 +72,7 @@ function shuffle(array) {
 }
 
 function matches(n, ps) {
+  teamsParticipating = ps;
   ps = shuffle(ps);
   // n = num players
   const rs = []; // rs = round array
@@ -176,6 +181,7 @@ function createTable() {
 }
 
 window.onload = () => {
+  configScoreListeners();
   fetch('./database.json')
     .then((response) => response.json())
     .then((json) => {
@@ -198,6 +204,6 @@ function createSelect(index) {
     el.textContent = team.shortName;
     el.value = team.shortName;
     selectTeamsName.appendChild(el);
-    document.querySelector('.teams-select').appendChild(selectTeamsName);
-  })
+    document.querySelector('.team-names').appendChild(selectTeamsName);
+  });
 }
