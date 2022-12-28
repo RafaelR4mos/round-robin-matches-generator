@@ -156,33 +156,37 @@
       </div>
 
 
-      <table id="qualifying">
-        <tr class="qualifying-table-header">
-          <th>Classificação</th>
-          <th>P</th>
-          <th>J</th>
-          <th>V</th>
-          <th>E</th>
-          <th>D</th>
-          <th>SG</th>
-        </tr>
+      <div id="qualifying">
+        <div class="qualifying-table-header">
+          <span>Classificação</span>
+          <span>P</span>
+          <span>J</span>
+          <span>V</span>
+          <span>E</span>
+          <span>D</span>
+          <span>SG</span>
+        </div>
 
-        <tr class="qualify-row">
-          <td class="qualify">
-            <h5 class="position">5</h5><img src="" alt="" class="team-logo">
-            <h5 class="team-name"></h5>Barcelona
-          </td>
-          <td class="points">9</td>
-          <td class="matches-played">9</td>
-          <td class="matches-played">4</td>
-          <td class="wins">3</td>
-          <td class="defeats">2</td>
-          <td class="goals-diff">2</td>
-        </tr>
-      </table>
+        <div class="container-qualify">
+        </div>
+      </div>
     </div>
   </main>
 </body>
+
+<div class="qualify-row" style="display: none;">
+  <div class="qualify">
+    <span class="position"></span>
+    <img src="" alt="" class="team-logo">
+    <span class="team-name"></span>
+  </div>
+  <span class="points"></span>
+  <span class="matches-played left-space"></span>
+  <span class="wins left-space"></span>
+  <span class="draws left-space"></span>
+  <span class="defeats left-space"></span>
+  <span class="goals-diff left-space"></span>
+</div>
 <script src="generateMatches.js"></script>
 
 </html>

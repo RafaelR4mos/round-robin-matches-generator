@@ -283,12 +283,40 @@ function proccessData() {
       }
     });
 
-    scoreData.push({ 'team': team, 'points ': points, 'matches': matches, 'wins': wins, 'draws': draws, 'defeats': defeats, 'goalsDiff': goalsDiff });
-    // console.log('team stats ',team, ' points ', points, ' matches ', matches, ' wins ', wins, ' draws ', draws, ' defeats ', defeats, ' goals diff ', goalsDiff);
+    scoreData.push({ 'team': team, 'points': points, 'matches': matches, 'wins': wins, 'draws': draws, 'defeats': defeats, 'goalsDiff': goalsDiff });
   });
 
-  console.log('DATA', scoreData);
+  scoreData = scoreData.sort(function (score1, score2) {
+    // sort by points
+    if (score1.points > score2.points) return -1;
+	  if (score1.points < score2.points) return 1;
+
+    // sort by goals difference
+    if (score1.goalsDiff > score2.goalsDiff) return -1;
+	  if (score1.goalsDiff < score2.goalsDiff) return 1;
+
+    return 0;
+  });
+
+  drawScoreTable();
 }
 function drawScoreTable() {
+  console.log('DATAAAA ', scoreData);
+  const containerScores = document.querySelector('.container-qualify');
+  const scoreRow = document.querySelector('.qualify-row');
+  containerScores.innerHTML = '';
+  scoreData.forEach((score, index) => {
+    const newRow = scoreRow.cloneNode(true);
+    newRow.querySelector('.position').innerText = index + 1;
+    newRow.querySelector('.team-name').innerText = score.team;
+    newRow.querySelector('.points').innerText = score.points;
+    newRow.querySelector('.matches-played').innerText = score.matches;
+    newRow.querySelector('.wins').innerText = score.wins;
+    newRow.querySelector('.draws').innerText = score.draws;
+    newRow.querySelector('.defeats').innerText = score.defeats;
+    newRow.querySelector('.goals-diff').innerText = score.goalsDiff;
+    newRow.style.display = 'flex';
+    containerScores.appendChild(newRow);
 
+  });
 }

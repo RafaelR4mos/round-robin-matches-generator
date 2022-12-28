@@ -203,3 +203,15 @@ label,
 td {
     color: #fff;
 }
+
+.qualify-row {
+    border-top: 2px solid white;
+}
+
+.qualify-row .qualify {
+    width: 150px;
+}
+
+.qualify-row .left-space {
+    padding-left: 6px;
+}
