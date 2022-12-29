@@ -390,14 +390,25 @@ function proccessData() {
 
     scoreData.push({
       team: team,
-      "points ": points,
+      points: points,
       matches: matches,
       wins: wins,
       draws: draws,
       defeats: defeats,
       goalsDiff: goalsDiff,
     });
-    // console.log('team stats ',team, ' points ', points, ' matches ', matches, ' wins ', wins, ' draws ', draws, ' defeats ', defeats, ' goals diff ', goalsDiff);
+  });
+
+  scoreData = scoreData.sort(function (score1, score2) {
+    // sort by points
+    if (score1.points > score2.points) return -1;
+    if (score1.points < score2.points) return 1;
+
+    // sort by goals difference
+    if (score1.goalsDiff > score2.goalsDiff) return -1;
+    if (score1.goalsDiff < score2.goalsDiff) return 1;
+
+    return 0;
   });
 
   console.log("DATA", scoreData);
