@@ -1,188 +1,248 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Matches</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Generate Matches</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <main>
+      <div class="generate-container">
+        <div class="page-title">
+          <span>Assim fica fácil criar campeonatos</span>
+          <h1>Gere agora as suas partidas</h1>
+        </div>
 
-<body>
-  <main>
-    <div class="generate-container">
-      <div class="page-title">
-        <span>Assim fica fácil criar campeonatos</span>
-        <h1>Gere agora as suas partidas</h1>
+        <div class="number-teams-container">
+          <label for="number-teams"
+            >Digite o número de times participantes</label
+          >
+          <input id="number-teams" type="number" required />
+          <button id="number-teams-btn">Confirmar</button>
+        </div>
+
+        <div id="team-names-container" class="team-names">
+          <h2>Selecione os times</h2>
+          <div class="teams-select"></div>
+          <button id="generate-btn">Gerar tabela</button>
+        </div>
+
+        <div id="matches-container" class="matches-table-container">
+          <h2>Suas partidas</h2>
+
+          <div id="matches-table">
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="one-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <span id="one-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="two-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <img class="second-img" src="" alt="flag" />
+              <span id="two-team-two" class="second"></span>
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="three-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <img class="second-img" src="" alt="flag" />
+              <span id="three-team-two" class="second"></span>
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="four-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <img class="second-img" src="" alt="flag" />
+              <span id="four-team-two" class="second"></span>
+            </div>
+
+            <div class="matches">
+              <img class="first-img" ="" alt="flag" />
+              <span id="five-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <img class="second-img" src="" alt="flag" />
+              <span id="five-team-two" class="second"></span>
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="six-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <img class="second-img" src="" alt="flag" />
+              <span id="six-team-two" class="second"></span>
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="seven-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <img class="second-img" src="" alt="flag" />
+              <span id="seven-team-two" class="second"></span>
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="eight-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <img class="second-img" src="" alt="flag" />
+              <span id="eight-team-two" class="second"></span>
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="nine-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <img class="second-img" src="" alt="flag" />
+              <span id="nine-team-two" class="second"></span>
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="ten-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <img class="second-img" src="" alt="flag" />
+              <span id="ten-team-two" class="second"></span>
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="eleven-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <span id="eleven-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="twelve-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <span id="twelve-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="thirteen-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <span id="thirteen-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="fourteen-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <span id="fourteen-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
+            </div>
+
+            <div class="matches">
+              <img class="first-img" src="" alt="flag" />
+              <span id="fifteen-team-one" class="first"></span>
+              <div class="matches-table-score">
+                <input type="number" class="score first" />
+                <span>x</span>
+                <input type="number" class="score second" />
+              </div>
+              <span id="fifteen-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
+            </div>
+          </div>
+
+          <table id="qualifying">
+            <tr class="qualifying-table-header">
+              <th>Classificação</th>
+              <th>P</th>
+              <th>J</th>
+              <th>V</th>
+              <th>E</th>
+              <th>D</th>
+              <th>SG</th>
+            </tr>
+
+            <tr class="qualify-row">
+              <td class="qualify">
+                <h5 class="position">5</h5>
+                <img src="" alt="" class="team-logo" />
+                <h5 class="team-name">Barcelona</h5>
+              </td>
+              <td class="points">9</td>
+              <td class="matches-played">9</td>
+              <td class="matches-played">4</td>
+              <td class="wins">3</td>
+              <td class="defeats">2</td>
+              <td class="goals-diff">2</td>
+            </tr>
+          </table>
+        </div>
       </div>
-
-
-      <div class="number-teams-container">
-        <label for="number-teams">Digite o número de times participantes</label>
-        <input id="number-teams" type="number" required />
-        <button id="number-teams-btn">Confirmar</button>
-      </div>
-
-      <div class="team-names">
-        <h2>Selecione os times</h2>
-        <div class="teams-select"></div>
-        <button id="generate-btn">Gerar tabela</button>
-      </div>
-
-      <div class="matches-table-container">
-        <h2>Suas partidas</h2>
-        <table id="matches-table">
-          <tr class="matches">
-            <td id="one-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="one-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="two-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="two-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="three-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="three-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="four-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="four-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="five-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="five-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="six-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="six-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="seven-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="seven-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="eight-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="eight-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="nine-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="nine-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="ten-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="ten-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="eleven-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="eleven-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="twelve-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="twelve-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="thirteen-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="thirteen-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="fourteen-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="fourteen-team-two" class="second"></td>
-          </tr>
-
-          <tr class="matches">
-            <td id="fifteen-team-one" class="first"></td>
-            <td><input type="number" class="score first"></td>
-            <td>x</td>
-            <td><input type="number" class="score second"></td>
-            <td id="fifteen-team-two" class="second"></td>
-          </tr>
-        </table>
-      </div>
-
-
-      <table id="qualifying">
-        <tr class="qualifying-table-header">
-          <th>Classificação</th>
-          <th>P</th>
-          <th>J</th>
-          <th>V</th>
-          <th>E</th>
-          <th>D</th>
-          <th>SG</th>
-        </tr>
-
-        <tr class="qualify-row">
-          <td class="qualify">
-            <h5 class="position">5</h5><img src="" alt="" class="team-logo">
-            <h5 class="team-name"></h5>Barcelona
-          </td>
-          <td class="points">9</td>
-          <td class="matches-played">9</td>
-          <td class="matches-played">4</td>
-          <td class="wins">3</td>
-          <td class="defeats">2</td>
-          <td class="goals-diff">2</td>
-        </tr>
-      </table>
-    </div>
-  </main>
-</body>
-<script src="generateMatches.js"></script>
-
+    </main>
+  </body>
+  <script src="generateMatches.js"></script>
 </html>
