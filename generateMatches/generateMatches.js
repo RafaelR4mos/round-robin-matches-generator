@@ -244,6 +244,9 @@ function createTable() {
     const filteredArr = match.querySelector("span");
     if (filteredArr.innerText == "") {
       match.style.display = "none";
+    } else {
+      match.setAttribute("data-match-id", count);
+      count++;
     }
   });
 
@@ -325,12 +328,12 @@ function validateScore(element) {
     } else {
       if (score.classList.contains("first")) {
         data.first = {
-          teamName: scoreRow.querySelector("td.first").innerText,
+          teamName: scoreRow.querySelector("span.first").innerText,
           teamScore: score.value,
         };
       } else if (score.classList.contains("second")) {
         data.second = {
-          teamName: scoreRow.querySelector("td.second").innerText,
+          teamName: scoreRow.querySelector("span.second").innerText,
           teamScore: score.value,
         };
       }
@@ -338,7 +341,8 @@ function validateScore(element) {
   });
 
   if (bothFilled) {
-    data.matchId = scoreRow.querySelector("td").innerText;
+    console.log("Element: ", scoreRow);
+    data.matchId = scoreRow.getAttribute("data-match-id");
     updateMainScore(data);
   }
 }
@@ -411,6 +415,24 @@ function proccessData() {
     return 0;
   });
 
-  console.log("DATA", scoreData);
+  drawScoreTable();
 }
-function drawScoreTable() {}
+function drawScoreTable() {
+  console.log("DATAAAA ", scoreData);
+  const containerScores = document.querySelector(".container-qualify");
+  const scoreRow = document.querySelector(".qualify-row");
+  containerScores.innerHTML = "";
+  scoreData.forEach((score, index) => {
+    const newRow = scoreRow.cloneNode(true);
+    newRow.querySelector(".position").innerText = index + 1;
+    newRow.querySelector(".team-name").innerText = score.team;
+    newRow.querySelector(".points").innerText = score.points;
+    newRow.querySelector(".matches-played").innerText = score.matches;
+    newRow.querySelector(".wins").innerText = score.wins;
+    newRow.querySelector(".draws").innerText = score.draws;
+    newRow.querySelector(".defeats").innerText = score.defeats;
+    newRow.querySelector(".goals-diff").innerText = score.goalsDiff;
+    newRow.style.display = "flex";
+    containerScores.appendChild(newRow);
+  });
+}
