@@ -7,6 +7,8 @@ const matchesTable = document.querySelector("#matches-table");
 const matchesTableContainer = document.querySelector(
   ".matches-table-container"
 );
+const matchesBtn = document.querySelector("#matches-btn");
+const qualifyTableBtn = document.querySelector("#edit-matches-btn ");
 
 const sixthTeamNameInput = document.querySelector("#team-six");
 const sixthTeamNameLabel = document.querySelector("#team-six-label");
@@ -54,7 +56,16 @@ generateBtn.addEventListener("click", () => {
   createTable();
   window.location.href = "#matches-container";
   loadIcons();
+  document.querySelector("#qualifying").style.display = "flex";
   //window.history.pushState({}, document.title, "/" + "index.html");
+});
+
+matchesBtn.addEventListener("click", () => {
+  window.location.href = "#qualifying";
+});
+
+qualifyTableBtn.addEventListener("click", () => {
+  window.location.href = "#matches-container";
 });
 
 document.querySelectorAll(".score").forEach((score) => {
