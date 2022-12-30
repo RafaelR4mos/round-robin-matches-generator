@@ -279,3 +279,31 @@ td {
 .qualify-row .left-space {
     padding-left: 6px;
 }
+
+/* selects */
+#team-names-container .options-container {
+    overflow-y: auto;
+    height: 0%;
+    transition: height .3s ease-out;
+}
+
+#team-names-container .options-container.open{
+    height: 90%;
+}
+
+#team-names-container .options-container .teams-selector-item {
+    cursor: pointer;
+}
+
+#team-names-container .options-container .teams-selector-item>img {
+    width: 30px;
+}
+
+#team-names-container .header-container {
+    display: flex;
+    cursor: pointer;
+}
+
+#team-names-container .header-container>img {
+    width: 30px;
+}
