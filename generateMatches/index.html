@@ -34,7 +34,6 @@
           <h2>Suas partidas</h2>
 
           <div id="matches-table">
-
             <div class="matches">
               <img class="first-img" src="" alt="flag" />
               <span id="one-team-one" class="first"></span>
@@ -55,8 +54,8 @@
                 <span>x</span>
                 <input type="number" class="score second" />
               </div>
-              <img class="second-img" src="" alt="flag" />
               <span id="two-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
             </div>
 
             <div class="matches">
@@ -67,8 +66,8 @@
                 <span>x</span>
                 <input type="number" class="score second" />
               </div>
-              <img class="second-img" src="" alt="flag" />
               <span id="three-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
             </div>
 
             <div class="matches">
@@ -79,8 +78,8 @@
                 <span>x</span>
                 <input type="number" class="score second" />
               </div>
-              <img class="second-img" src="" alt="flag" />
               <span id="four-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
             </div>
 
             <div class="matches">
@@ -91,8 +90,8 @@
                 <span>x</span>
                 <input type="number" class="score second" />
               </div>
-              <img class="second-img" src="" alt="flag" />
               <span id="five-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
             </div>
 
             <div class="matches">
@@ -103,8 +102,8 @@
                 <span>x</span>
                 <input type="number" class="score second" />
               </div>
-              <img class="second-img" src="" alt="flag" />
               <span id="six-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
             </div>
 
             <div class="matches">
@@ -115,8 +114,8 @@
                 <span>x</span>
                 <input type="number" class="score second" />
               </div>
-              <img class="second-img" src="" alt="flag" />
               <span id="seven-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
             </div>
 
             <div class="matches">
@@ -127,8 +126,8 @@
                 <span>x</span>
                 <input type="number" class="score second" />
               </div>
-              <img class="second-img" src="" alt="flag" />
               <span id="eight-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
             </div>
 
             <div class="matches">
@@ -139,8 +138,8 @@
                 <span>x</span>
                 <input type="number" class="score second" />
               </div>
-              <img class="second-img" src="" alt="flag" />
               <span id="nine-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
             </div>
 
             <div class="matches">
@@ -151,8 +150,8 @@
                 <span>x</span>
                 <input type="number" class="score second" />
               </div>
-              <img class="second-img" src="" alt="flag" />
               <span id="ten-team-two" class="second"></span>
+              <img class="second-img" src="" alt="flag" />
             </div>
 
             <div class="matches">
@@ -216,9 +215,14 @@
             </div>
           </div>
 
-          <div id="qualifying">
-            <div class="qualifying-table-header">
-              <span>Classificação</span>
+          <button id="matches-btn">Visualizar Tabela</button>
+        </div>
+
+        <div id="qualifying">
+          <h2>Qualificação</h2>
+          <div class="qualifying-table-header">
+            <span id="table-header-title">Times</span>
+            <div class="table-header-content">
               <span>P</span>
               <span>J</span>
               <span>V</span>
@@ -226,27 +230,32 @@
               <span>D</span>
               <span>SG</span>
             </div>
+          </div>
 
-        <div class="container-qualify">
+          <div class="container-qualify">
+            <div class="qualify-row">
+              <div class="qualify">
+                <span class="position"></span>
+                <img src="" alt="" class="team-logo" />
+                <span class="team-name"></span>
+              </div>
+              <div class="qualify-data">
+                <span class="points"></span>
+                <span class="matches-played left-space"></span>
+                <span class="wins left-space"></span>
+                <span class="draws left-space"></span>
+                <span class="defeats left-space"></span>
+                <span class="goals-diff left-space"></span>
+              </div>
+            </div>
+          </div>
+          <button id="edit-matches-btn">
+            <span>Editar Confrontos</span>
+            <img src="images/arrow-up.svg" alt="" />
+          </button>
         </div>
       </div>
-    </div>
-  </main>
-</body>
-
-<div class="qualify-row" style="display: none;">
-  <div class="qualify">
-    <span class="position"></span>
-    <img src="" alt="" class="team-logo">
-    <span class="team-name"></span>
-  </div>
-  <span class="points"></span>
-  <span class="matches-played left-space"></span>
-  <span class="wins left-space"></span>
-  <span class="draws left-space"></span>
-  <span class="defeats left-space"></span>
-  <span class="goals-diff left-space"></span>
-</div>
-<script src="generateMatches.js"></script>
-
+    </main>
+  </body>
+  <script src="generateMatches.js"></script>
 </html>
