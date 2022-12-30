@@ -1,0 +1,54 @@
+{
+    "teams": [
+        {
+            "name": "Barcelona",
+            "shortName": "BAR",
+            "icon": "barcelona"
+        },
+        {
+            "name": "Manchester City",
+            "shortName": "MAN",
+            "icon": "city"
+        },
+        {
+            "name": "Real Madrid",
+            "shortName": "REA",
+            "icon": "real"
+        },
+        {
+            "name": "Juventus",
+            "shortName": "JUV",
+            "icon": "juventus"
+        },
+        {
+            "name": "Bayern Munchen",
+            "shortName": "BAY",
+            "icon": "bayern"
+        },
+        {
+            "name": "Paris Saint German",
+            "shortName": "PSG",
+            "icon": "psg"
+        },
+        {
+            "name": "Manchester United",
+            "shortName": "MUN",
+            "icon": "mun"
+        },
+        {
+            "name": "Liverpool",
+            "shortName": "LIV",
+            "icon": "liverpool"
+        },
+        {
+            "name": "Arsenal",
+            "shortName": "ARS",
+            "icon": "arsenal"
+        },
+        {
+            "name": "Totenham",
+            "shortName": "TOT",
+            "icon": "tot"
+        }
+    ]
+}
