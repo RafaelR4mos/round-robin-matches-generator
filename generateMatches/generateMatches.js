@@ -286,7 +286,6 @@ function loadIcons() {
       span.classList.length === 1 &&
       span.parentElement.style.display != "none"
     ) {
-      console.log("Span: ", span);
       const logoImage = span.parentElement.querySelector(
         "." + span.className + "-img"
       );
@@ -295,7 +294,6 @@ function loadIcons() {
         (team) => span.innerText === team.shortName
       );
       const imgName = teamItem ? teamItem.icon : "default";
-      console.log(imgName);
       logoImage && logoImage.setAttribute("src", "images/" + imgName + ".png");
     }
   });
