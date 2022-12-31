@@ -243,9 +243,11 @@ function matches(n, ps) {
 
 function createTable() {
   const selectedData = [];
-  document.querySelectorAll("#team-names-container .teams-selector").forEach((teamsSelector) => {
-    selectedData.push(teamsSelector.getAttribute('data-selected-value'));
-  });
+  document
+    .querySelectorAll("#team-names-container .teams-selector")
+    .forEach((teamsSelector) => {
+      selectedData.push(teamsSelector.getAttribute("data-selected-value"));
+    });
 
   matches(parseInt(numberOfTeams), selectedData);
 
@@ -287,10 +289,10 @@ function loadIcons() {
       const logoImage = span.parentElement.querySelector(
         "." + span.className + "-img"
       );
-      const teamName = span.innerText.split(' ')[1] ? span.innerText.split(' ')[0] : span.innerText;
-      const teamItem = teamsData.find(
-        (team) => teamName === team.shortName
-      );
+      const teamName = span.innerText.split(" ")[1]
+        ? span.innerText.split(" ")[0]
+        : span.innerText;
+      const teamItem = teamsData.find((team) => teamName === team.shortName);
       const imgName = teamItem ? teamItem.icon : "default";
       logoImage && logoImage.setAttribute("src", "images/" + imgName + ".png");
     }
@@ -298,80 +300,110 @@ function loadIcons() {
 }
 function createSelect() {
   const selectTeamsName = document.createElement("div");
-        selectTeamsName.classList.add('teams-selector');
+  selectTeamsName.classList.add("teams-selector");
 
-  const headerContainer = document.createElement('div');
-        headerContainer.classList.add('header-container');
+  const headerContainer = document.createElement("div");
+  headerContainer.classList.add("header-container");
   const label = document.createElement("span");
-        label.innerText = "Selecione";
+  label.innerText = "Selecione";
   const labelImg = document.createElement("img");
-        labelImg.style.display = 'none';
+  labelImg.style.display = "none";
 
-  label.addEventListener('click', (event) => {
-    toggleSelectOpen(event.currentTarget.parentElement.parentElement.querySelector('.options-container'));
+  label.addEventListener("click", (event) => {
+    toggleSelectOpen(
+      event.currentTarget.parentElement.parentElement.querySelector(
+        ".options-container"
+      )
+    );
   });
 
   headerContainer.appendChild(labelImg);
   headerContainer.appendChild(label);
   selectTeamsName.appendChild(headerContainer);
 
-  const optionsContainer = document.createElement('div');
-        optionsContainer.classList.add('options-container');
+  const optionsContainer = document.createElement("div");
+  optionsContainer.classList.add("options-container");
 
   selectTeamsName.appendChild(optionsContainer);
   teamsData.forEach((team) => {
     el = document.createElement("div");
-    el.classList.add('teams-selector-item');
-    const logoImage = document.createElement('img');
-    const teamName = team.shortName.split(' ')[1] ? team.shortName.split(' ')[0] : team.shortName;
+    el.classList.add("teams-selector-item");
+    const logoImage = document.createElement("img");
+    const teamName = team.shortName.split(" ")[1]
+      ? team.shortName.split(" ")[0]
+      : team.shortName;
     const teamItem = teamsData.find(
       (teamData) => teamData.shortName === teamName
     );
     const imgName = teamItem ? teamItem.icon : "default";
     logoImage && logoImage.setAttribute("src", "images/" + imgName + ".png");
 
-    const label = document.createElement('span');
-    el.setAttribute('data-value', team.shortName);
+    const label = document.createElement("span");
+    el.setAttribute("data-value", team.shortName);
     label.innerText = team.shortName;
     el.appendChild(logoImage);
     el.appendChild(label);
-    el.addEventListener('click', (event) => {
-      const dataValue = event.currentTarget.getAttribute('data-value');
-      event.currentTarget.parentElement.parentElement.setAttribute('data-selected-value', dataValue);
-      event.currentTarget.parentElement.parentElement.querySelector('span').innerText = dataValue;
-      const topImage = event.currentTarget.parentElement.parentElement.querySelector('img');
-      topImage.setAttribute('src', event.currentTarget.querySelector('img').getAttribute('src'));
-      topImage.style.display = 'block';
-      toggleSelectOpen(event.currentTarget.parentElement.parentElement.querySelector('.options-container'));
+    el.addEventListener("click", (event) => {
+      const dataValue = event.currentTarget.getAttribute("data-value");
+      event.currentTarget.parentElement.parentElement.setAttribute(
+        "data-selected-value",
+        dataValue
+      );
+      event.currentTarget.parentElement.parentElement.querySelector(
+        "span"
+      ).innerText = dataValue;
+      const topImage =
+        event.currentTarget.parentElement.parentElement.querySelector("img");
+      topImage.setAttribute(
+        "src",
+        event.currentTarget.querySelector("img").getAttribute("src")
+      );
+      topImage.style.display = "block";
+      toggleSelectOpen(
+        event.currentTarget.parentElement.parentElement.querySelector(
+          ".options-container"
+        )
+      );
       updateTeamsOnSelects(event.currentTarget.parentElement.parentElement);
     });
 
-    selectTeamsName.querySelector('.options-container').appendChild(el);
+    selectTeamsName.querySelector(".options-container").appendChild(el);
   });
   document.querySelector(".teams-select").appendChild(selectTeamsName);
 }
 
 function updateTeamsOnSelects(selectUpdated) {
-  const selectedTeam = selectUpdated.getAttribute('data-selected-value');
-  selectUpdated.parentElement.querySelectorAll('.teams-selector').forEach((teamSelector) => {
-    if(teamSelector !== selectUpdated) {
-      if (!teamSelector.getAttribute('data-selected-value') || teamSelector.getAttribute('data-selected-value') !== selectedTeam) {
-        const teamToUpdate = teamSelector.querySelector('.teams-selector-item[data-value="'+ selectedTeam +'"]');
-        if (teamToUpdate) {
-          const newTeamName = (selectedTeam.split(' ')[1]) ? selectedTeam.split(' ')[0] + ' ' + parseInt(parseInt(selectedTeam.split(' ')[1]) + 1) : selectedTeam + ' ' + 2;
-          teamToUpdate.setAttribute('data-value', newTeamName);
-          teamToUpdate.querySelector('span').innerText = newTeamName;
+  const selectedTeam = selectUpdated.getAttribute("data-selected-value");
+  selectUpdated.parentElement
+    .querySelectorAll(".teams-selector")
+    .forEach((teamSelector) => {
+      if (teamSelector !== selectUpdated) {
+        if (
+          !teamSelector.getAttribute("data-selected-value") ||
+          teamSelector.getAttribute("data-selected-value") !== selectedTeam
+        ) {
+          const teamToUpdate = teamSelector.querySelector(
+            '.teams-selector-item[data-value="' + selectedTeam + '"]'
+          );
+          if (teamToUpdate) {
+            const newTeamName = selectedTeam.split(" ")[1]
+              ? selectedTeam.split(" ")[0] +
+                " " +
+                parseInt(parseInt(selectedTeam.split(" ")[1]) + 1)
+              : selectedTeam + " " + 2;
+            teamToUpdate.setAttribute("data-value", newTeamName);
+            teamToUpdate.querySelector("span").innerText = newTeamName;
+          }
         }
       }
-    }
-  });
+    });
 }
 
 function toggleSelectOpen(selectContainer) {
-  if (selectContainer.classList.contains('open')) {
-    selectContainer.classList.remove('open');
+  if (selectContainer.classList.contains("open")) {
+    selectContainer.classList.remove("open");
   } else {
-    selectContainer.classList.add('open');
+    selectContainer.classList.add("open");
   }
 }
 
