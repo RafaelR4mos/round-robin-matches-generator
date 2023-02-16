@@ -11,7 +11,7 @@ Este projeto foi desenvolvido com o intuito de solucionar um problema ao jogar c
 </p>
 
 <p align="center">
-  <img alt="imagem do site pronto" src="./assets/site-done.png">
+  <img alt="imagem do site pronto" src="./images/site-done.png">
 </p>
 
 <p align="center">
